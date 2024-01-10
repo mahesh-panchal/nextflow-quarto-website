@@ -5,6 +5,7 @@ include { QUARTO_RENDER_PROJECT                          } from "$projectDir/mod
 workflow {
     ch_quarto_config = Channel.fromPath ( params.quarto_config, checkIfExists: true ).collect()
     ch_notebooks = Channel.fromPath ( params.notebooks, checkIfExists: true )
+        .tap { ch_qmd }
         .branch { notebook ->
             r: notebook.text.contains('```{r}')
             julia: notebook.text.contains('```{julia}')
@@ -18,15 +19,12 @@ workflow {
         ch_notebooks.julia 
     )
 
-    project_notebooks = QUARTO_RENDER_PAGE_R.out.notebook
-        .mix( QUARTO_RENDER_PAGE_JULIA.out.notebook )
-
     project_caches = QUARTO_RENDER_PAGE_R.out.cache
         .mix( QUARTO_RENDER_PAGE_JULIA.out.cache )
 
     QUARTO_RENDER_PROJECT (
         ch_quarto_config,
-        project_notebooks.collect(),
+        ch_qmd.collect(),
         project_caches.collect()
     )
 

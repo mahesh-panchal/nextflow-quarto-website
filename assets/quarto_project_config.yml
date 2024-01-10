@@ -13,6 +13,9 @@ website:
       - section: R
         contents: 
           - page1.qmd
+      - section: Julia
+        contents:
+          - page2.qmd
 
 format:
   html:
