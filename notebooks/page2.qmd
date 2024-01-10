@@ -7,6 +7,8 @@ See @fig-parametric for an example.
 #| label: fig-parametric
 #| fig-cap: "Parametric Plots"
 
+import Pkg
+Pkg.add("Plots")
 using Plots
 
 plot(sin, 
