@@ -2,11 +2,13 @@
 
 Figuring out how to render a Quarto project from pieces under Nextflow.
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/mahesh-panchal/nextflow-quarto-website)
+
 ## How to
 
 1. Make your own project configuration. See [assets/quarto_project_config](assets/quarto_project_config.yml).
 2. Send your notebooks through the correct processes/containers/environments.
-3. Pass caches to the final process and rerender project as a whole. 
+3. Pass caches to the final process and rerender project as a whole (note: does not perform calculations again). 
 
 ## Yet to explore
 
