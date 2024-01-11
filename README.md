@@ -10,4 +10,6 @@ Figuring out how to render a Quarto project from pieces under Nextflow.
 
 ## Yet to explore
 
+- Separate the config into the necessary parts for the rendering and another part for content ordering, so new
+  notebooks can be added without triggering recalculation of everything.
 - Can one use dynamic directives to set the container based on notebook text (and a groovy switch expression)?
